@@ -1,4 +1,4 @@
-name: gcr.io/cloud-builders
+name: gcr.io/fuzzbench
 
 on:
   workflow_dispatch:
@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: x-mirrors/gcr.io
-          ref: 'cloud-builders'
+          ref: 'fuzzbench'
           token: ${{ secrets.GITHUB_TOKEN }}
           path: gcr.io
 
@@ -35,8 +35,8 @@ jobs:
           GIT_ORG: "x-mirrors"
           GIT_REPO: "gcr.io"
           GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SRC_IMAGE_LIST_URL: "https://raw.githubusercontent.com/x-mirrors/gcr.io/main/gcr.io/cloud-builders.txt"
-          DEST_REPO: "docker.io/gcriocloudbuilders"
+          SRC_IMAGE_LIST_URL: "https://raw.githubusercontent.com/little-77/fuzzbench-images/main/dispatcher"
+          DEST_REPO: "docker.io/gcriofuzzbench"
           SRC_TRANSPORT: "docker"
           DEST_TRANSPORT: "docker"
           DEST_TRANSPORT_USER: "xaction"
